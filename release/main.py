@@ -12,7 +12,7 @@ class Coffee(QMainWindow, Ui_MainWindow):
         self.initUI()
 
     def initUI(self):
-        db = sqlite3.connect('../data/coffee.sqlite')
+        db = sqlite3.connect('release/data/coffee.sqlite')
         cur = db.cursor()
         self.res = cur.execute('SELECT * FROM main').fetchall()
         headers = ['id', 'name', 'roasting', 'type', 'description', 'price', 'weigh']
@@ -41,7 +41,7 @@ class addEditFormWidget(QMainWindow, Ui_add_MainWindow):
         super().__init__(parent)
         self.setupUi(self)
 
-        self.db = sqlite3.connect('../data/coffee.sqlite')
+        self.db = sqlite3.connect('release/data/coffee.sqlite')
         self.apply_btn.clicked.connect(self.apply_info)
 
     def apply_info(self):
